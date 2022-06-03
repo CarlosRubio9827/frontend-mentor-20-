@@ -1,0 +1,8 @@
+$color-primario: red;
+$propiedad: 10px;
+
+
+body{
+    background-color: $color-primario;
+    margin: $propiedad;
+}
