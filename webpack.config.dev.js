@@ -14,7 +14,12 @@ module.exports = {
     resolve: {
         extensions: [
             '.js', '.jsx',
-        ]    
+        ],
+        alias: {
+            Components: path.resolve(__dirname, 'src/components/'),
+            Styles: path.resolve(__dirname, 'src/styles/'),
+            Images: path.resolve(__dirname, 'src/images/'),
+        }
     },
     mode: 'development',
     module: {
@@ -39,6 +44,13 @@ module.exports = {
                     'css-loader',
                     'sass-loader'
                 ],
+            },{
+                test: /\.png/,
+                type: 'asset/resource'
+            },
+            {
+                test: /\.svg$/,
+                use: ['@svgr/webpack'],
             },
         ]
     },

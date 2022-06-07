@@ -20,8 +20,9 @@ module.exports = {
             '.js', '.jsx',
         ],
         alias: {
-            '@components': path.resolve(__dirname, 'src/components/'),
-            '@styles': path.resolve(__dirname, 'src/styles/'),
+            Components: path.resolve(__dirname, 'src/components/'),
+            Styles: path.resolve(__dirname, 'src/styles/'),
+            Images: path.resolve(__dirname, 'src/images/'),
         }
     },
     mode: 'production',
@@ -47,6 +48,14 @@ module.exports = {
                     'css-loader',
                     'sass-loader'
                 ],
+            },
+            {
+                test: /\.png/,
+                type: 'asset/resource'
+            },
+            {
+                test: /\.svg$/,
+                use: ['@svgr/webpack'],
             },
         ]
     },
